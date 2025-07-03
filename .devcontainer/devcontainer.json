@@ -4,7 +4,7 @@
         "context": "."
     },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2":{
+        "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": "true",
             "username": "vscode",
             "userUid": "1000",
@@ -16,28 +16,28 @@
             "ppa": "false"
         }
     },
-	// Configure tool-specific properties.
-	"customizations": {
-        
-		// Configure properties specific to VS Code.
-		"vscode": {
-			// Set *default* container specific settings.json values on container create.
-			"settings": {
-				"python.defaultInterpreterPath": "/usr/local/bin/python"
-			},
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
+            },
             "extensions": [
                 "ms-python.python",
                 "ms-toolsai.jupyter",
                 "ms-toolsai.vscode-jupyter"
             ]
-		}
-	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
-
-	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode"
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}${env:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    ],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // "postCreateCommand": "pip3 install --user -r requirements.txt",
+    // Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }
