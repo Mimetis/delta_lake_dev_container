@@ -30,11 +30,15 @@ RUN pip install --upgrade --force-reinstall ipykernel ipython jupyterlab-widgets
 
 # Download the Delta Lake JARs
 RUN wget https://repo1.maven.org/maven2/io/delta/delta-spark_2.13/4.0.0/delta-spark_2.13-4.0.0.jar
-# RUN wget https://repo1.maven.org/maven2/io/delta/delta-core_2.13/2.4.0/delta-core_2.13-2.4.0.jar
 RUN wget https://repo1.maven.org/maven2/io/delta/delta-storage/4.0.0/delta-storage-4.0.0.jar
- 
+
+# access to adls gen 2
+RUN wget https://repo1.maven.org/maven2/com/azure/azure-storage-blob/12.31.2/azure-storage-blob-12.31.2.jar
+RUN wget https://repo1.maven.org/maven2/com/azure/azure-identity/1.17.0/azure-identity-1.17.0.jar
+RUN wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.4.1/hadoop-azure-3.4.1.jar
+RUN wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure-datalake/3.4.1/hadoop-azure-datalake-3.4.1.jar
 # Copy the JARs to Spark's jars directory
-RUN cp delta-spark_2.13-4.0.0.jar delta-storage-4.0.0.jar $SPARK_HOME/jars/
+RUN cp delta-spark_2.13-4.0.0.jar delta-storage-4.0.0.jar azure-storage-blob-12.31.2.jar hadoop-azure-3.4.1.jar hadoop-azure-datalake-3.4.1.jar azure-identity-1.17.0.jar $SPARK_HOME/jars/
 
 # [Optional] If your pip requirements rarely change, uncomment this section to add them to the image.
 # COPY requirements.txt /tmp/pip-tmp/

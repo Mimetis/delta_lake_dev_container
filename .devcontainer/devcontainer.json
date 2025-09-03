@@ -14,6 +14,9 @@
         "ghcr.io/devcontainers/features/git:1": {
             "version": "latest",
             "ppa": "false"
+        },
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "version": "latest"
         }
     },
     // Configure tool-specific properties.
@@ -27,7 +30,11 @@
             "extensions": [
                 "ms-python.python",
                 "ms-toolsai.jupyter",
-                "ms-toolsai.vscode-jupyter"
+                "ms-toolsai.vscode-jupyter",
+                "tamasfe.even-better-toml",
+                "mikestead.dotenv",
+                "ms-python.black-formatter",
+                "ms-vscode.makefile-tools"
             ]
         }
     },

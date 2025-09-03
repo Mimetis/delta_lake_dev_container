@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "siemens"
+version = "0.4.0"
+description = "Simple PySpark JSON→Parquet transformer"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pyspark"]
+
+[project.scripts]
+siemens = "siemens.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+# Keep lines readable in diffs and terminals
+line-length = 160
